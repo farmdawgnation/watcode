@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "express": "2.5.8",
-    "jqtpl": ">= 0.0.1"
+    "jqtpl": ">= 0.0.1",
+    "jake": ">= 0.2.32",
+    "minimatch": ">= 0.2.4"
   }
 }
