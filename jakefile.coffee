@@ -35,7 +35,7 @@ namespace "compass", () ->
 ##
 desc "Starts express in development mode."
 task "express", [], (task) ->
-  jake.exec ["node ./app.js"], () ->
+  jake.exec ["coffee ./app.coffee"], () ->
     console.error "[JAKE] Express has terminated..."
     complete
   , {stdout: true, stderr: true, async: true}
