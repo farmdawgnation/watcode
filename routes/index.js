@@ -1,8 +1,4 @@
-
-/*
- * GET home page.
- */
-
+// GET / - Homepage
 exports.index = function(req, res) {
   var data = {
     title: "#102 Excellent CSS",
