@@ -3,6 +3,7 @@
 // Bootstrap configuration
 $baseFontSize: 16px
 $baseLineHeight: 22px
+$iconSpritePath: "/images/glyphicons-halflings.png"
 
 // Load bootstrap.
 @import "compass_twitter_bootstrap"
@@ -28,9 +29,13 @@ $baseLineHeight: 22px
   position: relative
 
   .submission-actions-container
-    width: 130px
+    width: 166px
     margin-right: auto
     margin-left: auto
+    
+    button i
+      position: relative
+      top: 2px
   
   .submission-meta-container
     position: absolute
@@ -60,5 +65,6 @@ $baseLineHeight: 22px
     p
       font-size: 0.9em
       line-height: 1.3em
+      
       span
         display: block
