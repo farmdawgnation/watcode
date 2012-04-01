@@ -10,8 +10,6 @@ mongoose = require "mongoose"
 exports.index = (req, res) ->
   Submission = mongoose.model("Submission")
   results = Submission.find {}, (err, docs) ->
-    console.log docs
-    
     data = {
       as: global,
       success: req.flash("success"),
