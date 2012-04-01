@@ -31,6 +31,25 @@ namespace "compass", () ->
     , {stdout: true, stderr: true}
 
 ##
+# CoffeeScript Tasks
+##
+coffeescript_input = "coffeescript/"
+coffeescript_output = "public/javascripts/"
+namespace "coffee", () ->
+  desc "Start the coffeescript watcher."
+  task "watch", [], (task) ->
+    jake.exec ["coffee -w -o " + coffeescript_output + " " + coffeescript_input], () ->
+      complete
+    , {stdout: true, stderr: true, async: true}
+  
+  desc "Compile CoffeeScript."
+  task "compile", [], (task) ->
+    jake.exec ["coffee -o " + coffeescript_output + " " + coffeescript_input], () ->
+      console.log "[JAKE] CoffeeScript compilation complete."
+      complete
+    , {stdout: true, stderr: true}
+
+##
 # Misc Tasks
 ##
 desc "Starts express in development mode."
@@ -60,3 +79,6 @@ task "default", [], (task) ->
 
   compasswatcher = jake.Task["compass:watch"]
   compasswatcher.invoke()
+  
+  coffeescriptwatcher = jake.Task["coffee:watch"]
+  coffeescriptwatcher.invoke()
