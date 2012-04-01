@@ -1,3 +1,8 @@
+# Other routes
+exports.view = require("./view").view
+exports.compose = require("./compose").compose
+exports.submit = require("./submit").submit
+
 # GET / - Homepage
 exports.index = (req, res) ->
   data = {
