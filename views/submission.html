@@ -1,0 +1,31 @@
+<div class="submission">
+  <h2>${title}</h2>
+  <div class="row">
+    <div class="span9 submission-content">
+      <p class="summary">${summary}</p>
+  
+      <pre><code data-language="${language}">${code}</code></pre>
+    </div>
+    <div class="span3 submission-meta-container">
+      <div class="submission-meta">
+        <div class="submission-meta-arrow"></div>
+        <p class="category">Category:
+          <span>
+            <a href="/category/${language}">${languageName}</a>
+          </span>
+        </p>
+        <p class="attribution">Submitted By:
+          <span>
+            <a href="${authorUrl}" target="_blank">${author}</a>
+          </span>
+        </p>
+      </div>
+      
+      <div class="submission-actions-container btn-group">
+        <button class="btn">Share</button>
+        <button class="btn">Tweet</button>
+      </div>
+      
+    </div>
+  </div>
+</div>

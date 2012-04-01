@@ -22,3 +22,43 @@ $baseLineHeight: 22px
       h1
         font-size: 3em
         line-height: 1.4em
+        
+// Submission styles
+.submission
+  position: relative
+
+  .submission-actions-container
+    width: 130px
+    margin-right: auto
+    margin-left: auto
+  
+  .submission-meta-container
+    position: absolute
+    bottom: 1.2em
+    right: 0
+    
+    .submission-meta
+      position: relative
+      background-color: $grayLighter
+      +border-radius(5px)
+    
+      padding: 5px
+    
+      margin-bottom: 5px
+      
+      .submission-meta-arrow
+        position: absolute
+        z-index: -2
+        bottom: 25px
+        left: -10px
+        
+        width: 20px
+        height: 20px
+        background-color: $grayLighter
+        +rotate(45deg)
+    
+    p
+      font-size: 0.9em
+      line-height: 1.3em
+      span
+        display: block
