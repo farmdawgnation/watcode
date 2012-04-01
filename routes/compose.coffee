@@ -1,4 +1,8 @@
 # GET /compose - Compose a new submission
 exports.compose = (req, res) ->
-  res.render 'compose'
+  data = {
+    success: req.flash("success")
+  }
+  
+  res.render 'compose', data
 

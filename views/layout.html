@@ -41,6 +41,18 @@
           </p>
         </div>
       </div>
+      
+      {{each(i, alert) success}}
+      <div class="alert alert-success">
+        ${alert}
+      </div>
+      {{/each}}
+      
+      {{each(i, alert) error}}
+      <div class="alert alert-error">
+        ${alert}
+      </div>
+      {{/each}}
     
       {{html body}}
     </div>

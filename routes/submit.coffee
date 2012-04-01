@@ -1,3 +1,5 @@
 # POST /submit - Submit a new WAT
 exports.submit = (req, res) ->
-  # TODO: Implement all the submit.
+  console.log(req.body.submission)
+  req.flash('success', "Your submission has been completed.")
+  res.redirect("/compose")

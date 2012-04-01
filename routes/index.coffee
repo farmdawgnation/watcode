@@ -5,8 +5,12 @@ exports.submit = require("./submit").submit
 
 # GET / - Homepage
 exports.index = (req, res) ->
+  console.log req.session
+  
   data = {
     as: global,
+    success: req.flash("success"),
+    error: req.flash("error"),
     submission: [
       {
         title: "#102 Excellent CSS",
