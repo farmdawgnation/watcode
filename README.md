@@ -29,7 +29,7 @@ After that, you should be able to run the project in development mode by invokin
 ```
 $ jake
 Express server listening on port 3000 in development mode
-\>\>\> Compass is watching for changes. Press Ctrl-C to Stop.
+>>> Compass is watching for changes. Press Ctrl-C to Stop.
 ```
 
 ## About Me
