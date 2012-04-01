@@ -3,34 +3,20 @@ exports.view = require("./view").view
 exports.compose = require("./compose").compose
 exports.submit = require("./submit").submit
 
+# Mongoose
+mongoose = require "mongoose"
+
 # GET / - Homepage
 exports.index = (req, res) ->
-  console.log req.session
+  Submission = mongoose.model("Submission")
+  results = Submission.find {}, (err, docs) ->
+    console.log docs
+    
+    data = {
+      as: global,
+      success: req.flash("success"),
+      error: req.flash("error"),
+      submission: docs
+    }
   
-  data = {
-    as: global,
-    success: req.flash("success"),
-    error: req.flash("error"),
-    submission: [
-      {
-        title: "#102 Excellent CSS",
-        summary: "This is an example of some weird stuff.",
-        language: "css",
-        languageName: "CSS",
-        author: "@farmdawgnation",
-        authorUrl: "http://twitter.com/farmdawgnation",
-        code: "#container {\n\tdisplay: none\n\tzoom-level:1\n}"
-      },
-      {
-        title: "#104 Excellent Javascript",
-        summary: "I really hate Internet Explorer for a variety of reasons.",
-        language: "javascript",
-        languageName: "JavaScript",
-        author: "@shadowfiend",
-        authorUrl: "http://twitter.com/shadowfiend",
-        code: "> Array.indexOf(3)\n\"Object has no method indexOf.\"\n> $(document).ready()\nOK.\n\n\nHI"
-      }
-    ]
-  }
-  
-  res.render 'index', data
+    res.render 'index', data

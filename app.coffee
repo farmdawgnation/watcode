@@ -1,5 +1,7 @@
 express = require 'express'
+mongoose = require 'mongoose'
 routes = require './routes'
+models = require './model/submission'
 jqtpl = require 'jqtpl'
 app = module.exports = express.createServer();
 
@@ -17,10 +19,12 @@ app.configure () ->
 
 app.configure 'development', () ->
   app.use express.errorHandler({ dumpExceptions: true, showStack: true })
+  mongoose.connect "mongodb://localhost/wat-dev"
 
 
 app.configure 'production', () ->
   app.use express.errorHandler()
+  mongoose.connect "mongodb://localhost/wat-prod"
 
 # Routes
 app.get '/', routes.index
