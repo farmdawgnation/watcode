@@ -32,3 +32,6 @@ $(document).ready () ->
   
   .on "change", ".required-for-submission", (event) ->
     try_to_reenable_form()
+
+  .on "click", "button[type=submit].disabled", (event) ->
+    return false
