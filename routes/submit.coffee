@@ -6,6 +6,7 @@ exports.submit = (req, res) ->
   
   newsub = new Submission(req.body.submission)
   newsub.language = newsub.languageName.toLowerCase()
+  newsub.authorUrl = "http://twitter.com/" + newsub.author.toLowerCase()
   newsub.save()
   
   req.flash('success', "Your submission has been completed.")
