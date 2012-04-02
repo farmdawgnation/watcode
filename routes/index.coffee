@@ -9,7 +9,7 @@ mongoose = require "mongoose"
 # GET / - Homepage
 exports.index = (req, res) ->
   Submission = mongoose.model("Submission")
-  results = Submission.find {}, (err, docs) ->
+  results = Submission.find {published: true}, (err, docs) ->
     data = {
       as: global,
       success: req.flash("success"),
