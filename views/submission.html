@@ -1,5 +1,5 @@
-<div class="submission">
-  <h2>${title} <small><a href="/view/${id}">(link)</a></small></h2>
+<div class="submission" data-submission-id="${id}" data-submission-title="${title}">
+  <h2>${title} <small><a class="submission-link" href="/view/${id}">(link)</a></small></h2>
   <div class="row">
     <div class="span9 submission-content">
       <p class="summary">${summary}</p>
@@ -23,7 +23,7 @@
       
       <div class="submission-actions-container btn-group">
         <button class="btn"><i class="icon-share"></i> Share</button>
-        <button class="btn"><i class="icon-retweet"></i> Tweet</button>
+        <button class="twitter-share btn"><i class="icon-retweet"></i> Tweet</button>
       </div>
       
     </div>

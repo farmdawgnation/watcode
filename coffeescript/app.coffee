@@ -35,3 +35,15 @@ $(document).ready () ->
 
   .on "click", "button[type=submit].disabled", (event) ->
     return false
+
+  .on "click", "button.twitter-share", (event) ->
+    $submission = $(event.target).closest(".submission")
+    submissionId = $submission.data("submission-id")
+    submissionTitle = $submission.data("submission-title")
+    submissionHref = $submission.find(".submission-link").attr("href")
+
+    text = submissionTitle + " on WATgramming. "
+
+    tweetUrl = "https://twitter.com/share?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(submissionHref)
+
+    window.open(tweetUrl, 'twitterShare', 'width=600,height=300')
