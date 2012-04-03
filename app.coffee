@@ -30,6 +30,7 @@ app.configure 'production', () ->
 app.get '/', routes.index
 app.get '/view/:id', routes.view
 app.get '/compose', routes.compose
+app.get '/category/:category', routes.category
 
 app.post '/submit', routes.submit
 
