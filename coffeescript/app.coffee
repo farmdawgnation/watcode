@@ -47,3 +47,15 @@ $(document).ready () ->
     tweetUrl = "https://twitter.com/share?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(submissionHref)
 
     window.open(tweetUrl, 'twitterShare', 'width=600,height=300')
+
+  .on "click", "button.facebook-share", (event) ->
+    $submission = $(event.target).closest(".submission")
+    submissionId = $submission.data("submission-id")
+    submissionTitle = $submission.data("submission-title")
+    submissionHref = $submission.find(".submission-link").attr("href")
+
+    text = submissionTitle + " on WATgramming. "
+
+    fbUrl = "https://www.facebook.com/sharer.php?u=" + encodeURIComponent(submissionHref) + "&t=" + encodeURIComponent(submissionTitle)
+
+    window.open(fbUrl, 'facebookShare', 'width=650,height=400')
