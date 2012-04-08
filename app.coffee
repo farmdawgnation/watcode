@@ -40,4 +40,5 @@ app.post '/submit', routes.submit
 
 console.log "Using database: " + app.settings.database
 console.log "Using ReCAPTCHA API KEY: " + process.env.RECAPTCHAKEY
+console.log "Using ReCAPTCHA PRIVATE KEY: " + process.env.RECAPTCHAPRIVATEKEY
 console.log "Express server listening on port %d in %s mode", app.address().port, app.settings.env
