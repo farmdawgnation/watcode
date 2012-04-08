@@ -2,7 +2,8 @@
 exports.compose = (req, res) ->
   data = {
     success: req.flash("success"),
-    error: req.flash("error")
+    error: req.flash("error"),
+    recaptchakey: process.env.RECAPTCHAKEY
   }
   
   res.render 'compose', data
