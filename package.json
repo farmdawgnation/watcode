@@ -9,6 +9,7 @@
     "minimatch": ">= 0.2.4",
     "mongoose": ">= 2.5.13",
     "connect-mongo": ">= 0.1.7",
-    "jQuery": ">= 1.6.0"
+    "jQuery": ">= 1.6.0",
+    "jsdom": ">= 0.2.13"
   }
 }
