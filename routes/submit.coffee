@@ -1,8 +1,16 @@
 mongoose = require "mongoose"
 $ = require "jQuery"
+XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest
 
 # POST /submit - Submit a new WAT
 exports.submit = (req, res) ->
+  # Workaround for the Same Origin Policy being enforced
+  # by jQuery. This allows us to do our ReCAPTCHA API call
+  # using the uber sexy $.ajax syntax.
+  $.support.cors = true;
+  $.ajaxSettings.xhr = () ->
+      return new XMLHttpRequest
+
   validSubmission = true
   for key, value of req.body.submission
     validSubmission = validSubmission && value.toString().length
@@ -18,7 +26,7 @@ exports.submit = (req, res) ->
     dataType: "text",
     data: {
       privatekey: process.env.RECAPTCHAPRIVATEKEY,
-      remoteip: req.headers['X-RealIP'],
+      remoteip: req.headers['X-Real-IP'] || "127.0.0.1",
       challenge: req.body.recaptcha_challenge_field,
       response: req.body.recaptcha_response_field
     },
