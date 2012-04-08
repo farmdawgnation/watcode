@@ -20,11 +20,13 @@ app.configure () ->
 app.configure 'development', () ->
   app.use express.errorHandler({ dumpExceptions: true, showStack: true })
   mongoose.connect "mongodb://localhost/wat-dev"
+  app.listen 3000
 
 
 app.configure 'production', () ->
   app.use express.errorHandler()
   mongoose.connect "mongodb://localhost/wat-prod"
+  app.listen 9101
 
 # Routes
 app.get '/', routes.index
@@ -34,5 +36,4 @@ app.get '/category/:category', routes.category
 
 app.post '/submit', routes.submit
 
-app.listen 3000
 console.log "Express server listening on port %d in %s mode", app.address().port, app.settings.env
