@@ -28,7 +28,7 @@ app.configure 'development', () ->
 
 app.configure 'production', () ->
   app.use express.errorHandler()
-  app.listen 9101
+  app.listen process.env.PORTNUMBER || 9101
 
 # Routes
 app.get '/', routes.index
