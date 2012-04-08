@@ -17,7 +17,7 @@ app.configure () ->
   app.use express.methodOverride()
   app.use express.cookieParser()
   mongoose.connect "mongodb://localhost/" + app.settings.database
-  app.use express.session({ secret: "keyboard cat", store: new MongoStore({ db: app.settings.database }) })
+  app.use express.session({ secret: "wakkwakkawakka123", store: new MongoStore({ db: app.settings.database }) })
   app.use app.router
   app.use express.static(__dirname + '/public')
 
