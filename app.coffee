@@ -3,29 +3,31 @@ mongoose = require 'mongoose'
 routes = require './routes'
 models = require './model/submission'
 jqtpl = require 'jqtpl'
+MongoStore = require 'connect-mongo'
+
 app = module.exports = express.createServer();
 
 # Configuration
 app.configure () ->
+  app.set 'database', process.env.DATASTORE || "wat-dev"
   app.set 'views', __dirname + '/views'
   app.set "view engine", "html"
   app.register ".html", jqtpl.express
   app.use express.bodyParser()
   app.use express.methodOverride()
   app.use express.cookieParser()
-  app.use express.session({ secret: "keyboard cat" })
+  mongoose.connect "mongodb://localhost/" + app.settings.database
+  app.use express.session({ secret: "keyboard cat", store: new MongoStore({ db: app.settings.database }) })
   app.use app.router
   app.use express.static(__dirname + '/public')
 
 app.configure 'development', () ->
   app.use express.errorHandler({ dumpExceptions: true, showStack: true })
-  mongoose.connect "mongodb://localhost/wat-dev"
   app.listen 3000
 
 
 app.configure 'production', () ->
   app.use express.errorHandler()
-  mongoose.connect "mongodb://localhost/wat-prod"
   app.listen 9101
 
 # Routes
