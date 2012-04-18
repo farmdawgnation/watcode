@@ -11,14 +11,24 @@ mongoose = require "mongoose"
 exports.index = (req, res) ->
   limit = 20
   skip = (req.params.page || 0)*limit
-
   Submission = mongoose.model("Submission")
-  results = Submission.where('published', true).skip(skip).limit(limit).exec (err, docs) ->
-    data = {
-      as: global,
-      success: req.flash("success"),
-      error: req.flash("error"),
-      submission: docs
-    }
-  
-    res.render 'index', data
+
+  Submission.count {published: true}, (err, count) ->
+    newerEnabled = skip > 0
+    olderEnabled = count > skip + limit + 1
+
+    Submission.where('published', true).skip(skip).limit(limit).exec (err, docs) ->
+      data = {
+        as: global,
+        success: req.flash("success"),
+        error: req.flash("error"),
+        submission: docs,
+        pagination: {
+          newerEnabled: newerEnabled,
+          newerLink: "/page/" + (req.params.page - 1),
+          olderEnabled: olderEnabled,
+          olderLink: "/page/" + (req.params.page + 1)
+        }
+      }
+
+      res.render 'index', data
