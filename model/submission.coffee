@@ -1,7 +1,7 @@
 mongoose = require "mongoose"
 Schema = mongoose.Schema
 
-Submission = new Schema (
+Submission = new Schema({
   title: String,
   summary: String,
   language: String,
@@ -10,6 +10,6 @@ Submission = new Schema (
   authorUrl: String,
   code: String,
   published: {type: Boolean, default: false}
-)
+}, {strict: true})
 
 mongoose.model("Submission", Submission)
