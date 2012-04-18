@@ -3,8 +3,11 @@ mongoose = require "mongoose"
 
 # GET / - Homepage
 exports.language = (req, res) ->
+  limit = 20
+  skip = (req.params.page || 0)*limit
+
   Submission = mongoose.model("Submission")
-  results = Submission.find {language: req.params.language, published: true}, (err, docs) ->
+  results = Submission.where('published', true).where('language', req.params.language).skip(skip).limit(limit).exec (err, docs) ->
     data = {
       as: global,
       success: req.flash("success"),

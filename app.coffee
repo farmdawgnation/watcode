@@ -32,9 +32,11 @@ app.configure 'production', () ->
 
 # Routes
 app.get '/', routes.index
+app.get '/page/:page', routes.index
 app.get '/view/:id', routes.view
 app.get '/compose', routes.compose
 app.get '/language/:language', routes.language
+app.get '/language/:language/page/:page', routes.language
 
 app.post '/submit', routes.submit
 

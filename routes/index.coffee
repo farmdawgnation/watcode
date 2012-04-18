@@ -9,8 +9,11 @@ mongoose = require "mongoose"
 
 # GET / - Homepage
 exports.index = (req, res) ->
+  limit = 20
+  skip = (req.params.page || 0)*limit
+
   Submission = mongoose.model("Submission")
-  results = Submission.find {published: true}, (err, docs) ->
+  results = Submission.where('published', true).skip(skip).limit(limit).exec (err, docs) ->
     data = {
       as: global,
       success: req.flash("success"),
