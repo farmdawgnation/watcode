@@ -11,13 +11,13 @@
     <!--[if IE]>
         <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <![endif]-->
-    
+
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-    
+
     <!-- Application JS -->
     <script src="/javascripts/app.js" type="text/javascript" charset="utf-8"></script>
-    
+
     <!-- Rainbow -->
     <link rel="stylesheet" href="/lib/rainbow-1.1.1/themes/blackboard.css" type="text/css">
     <script src="/lib/rainbow-1.1.1/rainbow.js" type="text/javascript" charset="utf-8"></script>
@@ -43,25 +43,25 @@
             Inspired by the <a href="https://www.destroyallsoftware.com/talks/wat" target="_blank">WAT Lightening Talk</a>.
             Brewed in Atlanta with love by <a href="http://twitter.com/farmdawgnation">@farmdawgnation</a>.
           </p>
-          
+
           <p>
             <a href="/compose">Submit your WAT-worthy code.</a>
           </p>
         </div>
       </div>
-      
+
       {{each(i, alert) success}}
       <div class="alert alert-success">
         ${alert}
       </div>
       {{/each}}
-      
+
       {{each(i, alert) error}}
       <div class="alert alert-error">
         ${alert}
       </div>
       {{/each}}
-    
+
       {{html body}}
     </div>
   </body>
