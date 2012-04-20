@@ -42,7 +42,7 @@ exports.submit = (req, res) ->
         newsub.published = false # We don wan no mass assignment hear?
         newsub.save()
   
-        req.flash('success', "Your submission has been completed.")
+        req.flash('success', "Your submission has been completed. It will be posted after admin review.")
         res.redirect("/")
       else
         if dataParts[1] == "invalid-site-private-key"
