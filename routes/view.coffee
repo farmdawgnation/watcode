@@ -14,6 +14,6 @@ exports.view = (req, res) ->
       submission: docs
     }
 
-    res.render 'index', data
+    res.render 'view', data
 
 
