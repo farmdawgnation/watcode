@@ -11,7 +11,7 @@ exports.category = (req, res) ->
     newerEnabled = skip > 0
     olderEnabled = count > skip + limit + 1
 
-    Submission.where('published', true).where('category', req.params.category).skip(skip).limit(limit).exec (err, docs) ->
+    Submission.where('published', true).where('category', req.params.category).sort('_id', -1).skip(skip).limit(limit).exec (err, docs) ->
       data = {
         as: global,
         success: req.flash("success"),

@@ -18,7 +18,7 @@ exports.index = (req, res) ->
     newerEnabled = skip > 0
     olderEnabled = count > skip + limit + 1
 
-    Submission.where('published', true).skip(skip).limit(limit).exec (err, docs) ->
+    Submission.where('published', true).sort('_id', -1).skip(skip).limit(limit).exec (err, docs) ->
       data = {
         as: global,
         success: req.flash("success"),
