@@ -53,7 +53,7 @@ $(document).ready () ->
     submissionTitle = $submission.data("submission-title")
     submissionHref = $submission.find(".submission-link").attr("href")
 
-    text = submissionTitle + " on WATgramming. "
+    text = submissionTitle + " on watcode. "
 
     tweetUrl = "https://twitter.com/share?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(submissionHref)
 
@@ -66,7 +66,7 @@ $(document).ready () ->
     submissionTitle = $submission.data("submission-title")
     submissionHref = $submission.find(".submission-link").attr("href")
 
-    text = submissionTitle + " on WATgramming. "
+    text = submissionTitle + " on watcode. "
 
     fbUrl = "https://www.facebook.com/sharer.php?u=" + encodeURIComponent(submissionHref) + "&t=" + encodeURIComponent(submissionTitle)
 
