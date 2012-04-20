@@ -37,6 +37,8 @@ app.get '/view/:id', routes.view
 app.get '/compose', routes.compose
 app.get '/language/:language', routes.language
 app.get '/language/:language/page/:page', routes.language
+app.get '/category/:category', routes.category
+app.get '/category/:category/page/:page', routes.category
 
 app.post '/submit', routes.submit
 

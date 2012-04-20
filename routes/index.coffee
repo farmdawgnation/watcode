@@ -3,6 +3,7 @@ exports.view = require("./view").view
 exports.compose = require("./compose").compose
 exports.submit = require("./submit").submit
 exports.language = require("./language").language
+exports.category = require("./category").category
 
 # Mongoose
 mongoose = require "mongoose"
