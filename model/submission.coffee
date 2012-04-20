@@ -4,6 +4,7 @@ Schema = mongoose.Schema
 Submission = new Schema({
   title: String,
   summary: String,
+  category: String,
   language: String,
   languageName: String,
   author: String,
