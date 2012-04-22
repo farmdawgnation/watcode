@@ -91,3 +91,19 @@ $(document).ready () ->
       error: (req, status, error) ->
         alert "Server Responded" + status + " - " + error
     })
+
+  .on 'click', 'button.delete-submission', (event) ->
+    $submission = $(event.target).closest(".submission")
+    submissionId = $submission.data("submission-id")
+
+    $.ajax({
+      url: '/admin/delete',
+      type: 'post',
+      data: {submissionId: submissionId},
+      success: () ->
+        $submission.remove()
+        alert "Submission deleted."
+      ,
+      error: (req, status, error) ->
+        alert "Server Responded" + status + " - " + error
+    })
