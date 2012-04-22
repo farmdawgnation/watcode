@@ -2,9 +2,12 @@ express = require 'express'
 mongoose = require 'mongoose'
 routes = require './routes'
 admin_routes = require './routes/admin'
-models = require './model/submission'
 jqtpl = require 'jqtpl'
 MongoStore = require 'connect-mongo'
+
+# Models
+require './model/submission'
+require './model/user'
 
 app = module.exports = express.createServer();
 
