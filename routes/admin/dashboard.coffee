@@ -15,7 +15,8 @@ exports.dashboard = (req, res) ->
       as: global,
       success: req.flash("success"),
       error: req.flash("error"),
-      submission: docs
+      submission: docs,
+      currentUser: req.session.user
     }
 
     res.render 'admin/dashboard', data
