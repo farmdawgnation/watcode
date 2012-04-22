@@ -10,4 +10,7 @@ exports.delete = require("./delete").delete
 # If logged in, then redirect to the dashboard. If not logged in
 # redirect to login page.
 exports.index = (req, res) ->
-  # TODO
+  if (req.session.user)
+    res.redirect "/admin/dashboard"
+  else
+    res.redirect "/admin/login"
