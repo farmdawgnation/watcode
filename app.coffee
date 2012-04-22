@@ -1,6 +1,7 @@
 express = require 'express'
 mongoose = require 'mongoose'
 routes = require './routes'
+admin_routes = requore './routes/admin'
 models = require './model/submission'
 jqtpl = require 'jqtpl'
 MongoStore = require 'connect-mongo'
@@ -30,7 +31,7 @@ app.configure 'production', () ->
   app.use express.errorHandler()
   app.listen process.env.PORTNUMBER || 9101
 
-# Routes
+# Fontend Routes
 app.get '/', routes.index
 app.get '/page/:page', routes.index
 app.get '/view/:id', routes.view
@@ -41,6 +42,16 @@ app.get '/category/:category', routes.category
 app.get '/category/:category/page/:page', routes.category
 
 app.post '/submit', routes.submit
+
+# Admin Routes
+app.get '/admin', admin_routes.index
+app.get '/admin/dashboard', admin_routes.dashboard
+app.get '/admin/login', admin_routes.login
+app.get '/admin/logout', admin_routes.logout
+
+app.post '/admin/authenticate', admin_routes.authenticate
+app.post '/admin/publish', admin_routes.publish
+app.post '/admin/delete', admin_routes.delete
 
 console.log "Using database: " + app.settings.database
 console.log "Using ReCAPTCHA API KEY: " + process.env.RECAPTCHAKEY
