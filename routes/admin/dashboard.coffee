@@ -6,8 +6,8 @@ exports.dashboard = (req, res) ->
   Submission = mongoose.model("Submission")
 
   if (! req.session.user)
-    res.flash.error = "Authentication is required to access this area."
-    res.redirect("/admin/login")
+    req.flash('error', "Authentication is required to access this area.")
+    res.redirect '/admin/login'
 
   # Retrieve unpublished submissions
   Submission.where('published', false).exec (err, docs) ->
