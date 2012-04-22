@@ -45,6 +45,7 @@ $(document).ready () ->
     return false
   
   .on "submit", ".submission-compose-form", (event) ->
+    alert("BOOYAN")
     track_mixpanel("send_submission", {
       category: $('#submission-category').val(),
       language: $('#submission-language').val()
