@@ -6,7 +6,7 @@ exports.language = (req, res) ->
   limit = 20
   skip = (req.params.page || 0)*limit
   Submission = mongoose.model("Submission")
-  
+
   Submission.count {published: true, language: req.params.language}, (err, count) ->
     newerEnabled = skip > 0
     olderEnabled = count > skip + limit + 1
@@ -16,6 +16,7 @@ exports.language = (req, res) ->
         as: global,
         success: req.flash("success"),
         error: req.flash("error"),
+        currentUser: req.session.user,
         submission: docs,
         pagination: {
           newerEnabled: newerEnabled,

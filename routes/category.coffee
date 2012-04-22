@@ -6,7 +6,7 @@ exports.category = (req, res) ->
   limit = 20
   skip = (req.params.page || 0)*limit
   Submission = mongoose.model("Submission")
-  
+
   Submission.count {published: true, category: req.params.category}, (err, count) ->
     newerEnabled = skip > 0
     olderEnabled = count > skip + limit + 1
@@ -16,6 +16,7 @@ exports.category = (req, res) ->
         as: global,
         success: req.flash("success"),
         error: req.flash("error"),
+        currentUser: req.session.user,
         submission: docs,
         pagination: {
           newerEnabled: newerEnabled,

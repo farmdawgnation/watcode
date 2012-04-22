@@ -23,6 +23,7 @@ exports.index = (req, res) ->
         as: global,
         success: req.flash("success"),
         error: req.flash("error"),
+        currentUser: req.session.user,
         submission: docs,
         pagination: {
           newerEnabled: newerEnabled,
