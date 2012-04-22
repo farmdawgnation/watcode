@@ -1,5 +1,9 @@
 # WAT app.js - What's up doc?
 
+track_mixpanel = (event, props) ->
+  if (! document.location.host.match(/localhost/))
+    mixpanel.track(event, props)
+
 try_to_reenable_form = () ->
   $button_disabled = false
     
@@ -13,7 +17,7 @@ try_to_reenable_form = () ->
   
 
 $(document).ready () ->
-  mixpanel.track('view', {
+  track_mixpanel('view', {
     url: document.location
   })
 
@@ -41,13 +45,13 @@ $(document).ready () ->
     return false
   
   .on "submit", ".submission-compose-form", (event) ->
-    mixpanel.track("send_submission", {
+    track_mixpanel("send_submission", {
       category: $('#submission-category').val(),
       language: $('#submission-language').val()
     })
 
   .on "click", "button.twitter-share", (event) ->
-    mixpanel.track("twitter_share")
+    track_mixpanel("twitter_share")
     $submission = $(event.target).closest(".submission")
     submissionId = $submission.data("submission-id")
     submissionTitle = $submission.data("submission-title")
@@ -60,7 +64,7 @@ $(document).ready () ->
     window.open(tweetUrl, 'twitterShare', 'width=600,height=300')
 
   .on "click", "button.facebook-share", (event) ->
-    mixpanel.track("facebook_share")
+    track_mixpanel("facebook_share")
     $submission = $(event.target).closest(".submission")
     submissionId = $submission.data("submission-id")
     submissionTitle = $submission.data("submission-title")
