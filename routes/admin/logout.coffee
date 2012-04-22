@@ -1,4 +1,4 @@
 # GET /logout - Undo session
-exports.logout = (res,req) ->
+exports.logout = (req,res) ->
   req.session.user = undefined
-  req.redirect("/")
+  res.redirect("/")
