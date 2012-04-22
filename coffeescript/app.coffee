@@ -76,3 +76,19 @@ $(document).ready () ->
     fbUrl = "https://www.facebook.com/sharer.php?u=" + encodeURIComponent(submissionHref) + "&t=" + encodeURIComponent(submissionTitle)
 
     window.open(fbUrl, 'facebookShare', 'width=650,height=400')
+
+  .on 'click', 'button.publish-submission', (event) ->
+    $submission = $(event.target).closest(".submission")
+    submissionId = $submission.data("submission-id")
+
+    $.ajax({
+      url: '/admin/publish',
+      type: 'post',
+      data: {submissionId: submissionId},
+      success: () ->
+        $submission.remove()
+        alert "Submission published."
+      ,
+      error: (req, status, error) ->
+        alert "Server Responded" + status + " - " + error
+    })
