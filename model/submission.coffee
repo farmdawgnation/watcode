@@ -9,6 +9,7 @@ Submission = new Schema({
   languageName: String,
   author: String,
   authorUrl: String,
+  authorEmail: String,
   code: String,
   published: {type: Boolean, default: false}
 }, {strict: true})
