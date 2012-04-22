@@ -1,0 +1,35 @@
+<div class="submission" data-submission-id="${id}" data-submission-title="${title}">
+  <h2>${title} <small><a class="submission-link" href="/view/${id}">(link)</a></small></h2>
+  <div class="row">
+    <div class="span9 submission-content">
+      <p class="summary">${summary}</p>
+  
+      <pre><code data-language="${language}">${code}</code></pre>
+    </div>
+    <div class="span3 submission-meta-container">
+      <div class="submission-meta">
+        <p class="category">Category:
+          <span>
+            <a href="/category/${category}">${category}</a>
+          </span>
+        </p>
+        <p class="language">Language:
+          <span>
+            <a href="/language/${language}">${languageName}</a>
+          </span>
+        </p>
+        <p class="attribution">Submitted By:
+          <span>
+            <a href="${authorUrl}" target="_blank">@${author}</a>
+          </span>
+        </p>
+      </div>
+      
+      <div class="submission-actions-container btn-group">
+        <button class="facebook-share btn"><i class="icon-ok"></i> Publish</button>
+        <button class="twitter-share btn"><i class="icon-remove"></i> Delete</button>
+      </div>
+      
+    </div>
+  </div>
+</div>

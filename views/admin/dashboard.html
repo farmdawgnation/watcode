@@ -1,0 +1,20 @@
+<h1>Submission Approval</h1>
+
+<p>
+  Use the controls below to approve or delete unpublished submissions.
+</p>
+
+{{partial(submission) "submission"}}
+
+<ul class="pager">
+  <li class="previous">
+    {{if pagination.olderEnabled}}
+    <a href="${pagination.olderLink}">&larr; Older</a>
+    {{/if}}
+  </li>
+  <li class="next">
+    {{if pagination.newerEnabled}}
+    <a href="${pagination.newerLink}">Newer &rarr;</a>
+    {{/if}}
+  </li>
+</ul>
