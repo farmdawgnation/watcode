@@ -6,7 +6,7 @@ exports.authenticate = (req, res) ->
 
   if (username == "matt" && password == "bacon")
     req.session.user = {username: 'matt'}
-    req.redirect("/admin/dashboard")
+    res.redirect("/admin/dashboard")
   else
     req.flash.error = "Invalid username or password."
-    req.redirect("back")
+    res.redirect("back")
