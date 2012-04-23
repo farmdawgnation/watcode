@@ -56,7 +56,4 @@ app.post '/admin/authenticate', admin_routes.authenticate
 app.post '/admin/publish', admin_routes.publish
 app.post '/admin/delete', admin_routes.delete
 
-console.log "Using database: " + app.settings.database
-console.log "Using ReCAPTCHA API KEY: " + process.env.RECAPTCHAKEY
-console.log "Using ReCAPTCHA PRIVATE KEY: " + process.env.RECAPTCHAPRIVATEKEY
-console.log "Express server listening on port %d in %s mode", app.address().port, app.settings.env
+console.log "Express server listening in %s mode", app.settings.env
