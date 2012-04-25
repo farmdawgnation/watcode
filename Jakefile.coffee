@@ -1,3 +1,17 @@
+# Copyright 2012 Matt Farmer
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 # Jake Buildfile - Legends of WAT
 # (c) 2012 Matt Farmer
 
@@ -11,19 +25,19 @@ namespace "compass", () ->
       console.error "[JAKE] Compass has terminated."
       complete
     , {stdout: true, stderr: true, async: true}
-  
+
   desc "Compiles sass files into CSS."
   task "compile", [], (task) ->
     jake.exec ["compass compile -f"], () ->
       complete
     , {stdout: true, stderr: true}
-  
+
   desc "Compile sass file into compressed CSS."
   task "compress", [], (task) ->
     jake.exec ["compass compile -f -e production"], () ->
       complete
     , {stdout: true, stderr: true}
-  
+
   desc "Clean out compiled CSS files."
   task "clean", [], (task) ->
     jake.exec ["compass clean"], () ->
@@ -41,7 +55,7 @@ namespace "coffee", () ->
     jake.exec ["coffee -w -o " + coffeescript_output + " " + coffeescript_input], () ->
       complete
     , {stdout: true, stderr: true, async: true}
-  
+
   desc "Compile CoffeeScript."
   task "compile", [], (task) ->
     jake.exec ["coffee -o " + coffeescript_output + " " + coffeescript_input], () ->
@@ -79,6 +93,6 @@ task "default", [], (task) ->
 
   compasswatcher = jake.Task["compass:watch"]
   compasswatcher.invoke()
-  
+
   coffeescriptwatcher = jake.Task["coffee:watch"]
   coffeescriptwatcher.invoke()

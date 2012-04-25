@@ -1,7 +1,6 @@
 This application is a site that I wrote for my own personal amusement.
 The idea is to collect funny, interesting, or purely outrageous snippets of code for the world to see.
-Inspired by the WAT Lightening Talk, and developed in Node.js, my hope is that the submissions to this
-app will be amusing and what you learn from peeking at the code will be enlightening.
+Inspired by the WAT Lightening Talk, and developed in CoffeeScript that runs inside Node.js.
 
 ## Getting Started
 
@@ -24,16 +23,25 @@ cloned this project to, and run:
 $ npm install -d
 ```
 
-After that, you should be able to run the project in development mode by invoking jake.
+NPM should be able to effectively detect and install all the dependencies without a fuss.
+After that, you should be able to run the project in development mode by invoking jake which will
+start Express, the Compass watcher, and the CoffeeScript watcher (for the frontend JavaScript).
 
 ```
 $ jake
-Express server listening on port 3000 in development mode
+Express server listening in development mode
 >>> Compass is watching for changes. Press Ctrl-C to Stop.
 ```
+
+At this point, you should be able to point your browser at http://localhost:3000 to see a version
+of the application alive and kicking.
 
 ## About Me
 
 My name is Matt Farmer. I'm a Software Engineer at [OpenStudy](http://openstudy.com) where we're working to make the world
 one big study group by providing high-quality peer-to-peer tutoring. I write about the technology industry, programming,
 and anything else that catches my fancy at my blog, [Farmdawg Nation](http://farmdawgnation.com).
+
+## License
+
+This project is licensed under the Apache License 2.0. You can review the content of that license [here](http://www.apache.org/licenses/LICENSE-2.0.html).
