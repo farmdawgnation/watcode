@@ -12,12 +12,14 @@ workerRestartCallback = (worker) ->
   worker.on('death', workerRestartCallback)
 
 if (cluster.isMaster)
+  # Wire up death handler
+  cluster.on('death', workerRestartCallback)
+
   # Fork off the child processes.
   i = 0
   while i < numExpressWorkers
     worker = cluster.fork()
     console.log "Worker " + worker.pid + " spawned."
-    worker.on('death', workerRestartCallback)
 
     i++
 else
