@@ -38,6 +38,9 @@ $(document).ready () ->
   })
 
   $(".container")
+  .on "click", "#legends_of_wat", (event) ->
+    document.location = "/"
+
   .on "blur", ".submission-compose-form input, .submission-compose-form textarea, .submission-compose-form .select", (event) ->
     $event_target = $(event.target)
     $event_target_container = $(event.target).closest(".control-group")
